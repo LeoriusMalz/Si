@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int n = 0;
+    double S = 0;
+
+    scanf("%d", &n);
+    //n = 3;
+    
+    int *x = (int*)malloc(n*sizeof(int*));
+    int *y = (int*)malloc(n*sizeof(int*));
+
+    /*x[0] = 1;
+    y[0] = 0;
+    x[1] = 0;
+    y[1] = 1;
+    x[2] = 1;
+    y[2] = 1; */
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d %d", &x[i], &y[i]);
+    }
+
+    for (int i = 0; i < n-1; i++) {
+        S += x[i] * y[i+1];
+        //printf("%d - %lf\n", i, S);
+    }
+
+    for (int i = 0; i < n-1; i++) {
+        S -= x[i+1] * y[i];
+        //printf("%d - %lf\n", i, S);
+    }
+
+    //printf("\n %d %d", x[n-1]*y[0], x[0]*y[n-1]);
+
+    S = S + x[n-1]*y[0] - x[0]*y[n-1];
+    S = fabs(S)/2;
+
+    printf("%lf", S);
+
+    return 0;
+}
