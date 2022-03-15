@@ -17,9 +17,7 @@ int main() {
     freopen("cuda.in", "r", stdin);
     freopen("cuda.out", "w", stdout);
 
-    f1 = fopen("cuda.in", "r");
     scanf("%d%d%d", &a, &b, &c);
-    fclose(f1);
 
     int A = ((a-1)/32 + 1)*32;
     int B = ((b-1)/2 + 1)*2;
@@ -38,9 +36,7 @@ int main() {
 
     int cuda = (int)round(((cash * a)/1536.0)*100);
 
-    f2 = fopen("cuda.out", "w");
     printf("%d", cuda);
-    fclose(f2);
 
     return 0;
 }
